@@ -1,34 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-struct principal{
-    int *auxiliar;
-    int quantidade;
-    int contador;
-    int *ordenaEstrutura;
-};
-
-int menu();
-void *Malloc(struct principal *Posicao, int posicao);
-void *Realloc(struct principal Posicao[], int num, int pos);
-void inserir(struct principal *Posicao, int tam, int pos);
-int contSpace(struct principal *Posicao, int elemento, int pos);
-void listarPorEstrutura(struct principal *Posicao, int tam);
-void listarOrdPorEstr(struct principal *Posicao, int tam);
-void listarTodos(struct principal *Posicao, int tam);
-void passarValores(struct principal *Posicao, int tam);
-void insertionSort(struct principal *Posicao, int tam);
-void insertionSort_Todos(int *ordenaTotal, int *total);
-int validarEntrada(char *dado, int *num);
-int validarElemento(char *dados, int *elemento);
-void saberPosicao(int *pos, int tam);
-void pegarElemento(int *elemento);
-void excluir(struct principal *Posicao, int tam, int pos);
-void mostrarPosicoes(struct principal *Posicao, int tam);
-void aumentar(struct principal *Posicao, int pos);
-int somaTotal(struct principal *Posicao, int tam);
-int separar_Numero(char *dados, int *vetor, int *cont, int *multiplicador, int negativo);
+#include "arquivo.h"
 
 int main(){
 
@@ -97,7 +70,7 @@ int main(){
     return 0;
 }
 
-//-------MOSTRAR POSIC’ES QUE EXISTE PARA AUMENTAR-----------------------------
+//-------MOSTRAR POSIC√ïES QUE EXISTE PARA AUMENTAR-----------------------------
 void mostrarPosicoes(struct principal *Posicao, int tam){
 
     int i;
@@ -250,7 +223,7 @@ int validarElemento(char *dado, int *elemento){
         }else
           valor=vetor[0];
 
-        if(negativo==1)//se for negativo multiplica por -1, o traÁo È 45 na ascii
+        if(negativo==1)//se for negativo multiplica por -1, o tra√ßo √© 45 na ascii
             valor*=-1;
 
         valida=1;
@@ -261,7 +234,7 @@ int validarElemento(char *dado, int *elemento){
     return valida;
 }
 
-//---------------------FUN«√O INSERIR---------------
+//---------------------FUN√á√ÉO INSERIR---------------
 void inserir(struct principal *Posicao, int tam, int pos){
 
     int i, elemento, cont=0, num;
@@ -282,16 +255,16 @@ void inserir(struct principal *Posicao, int tam, int pos){
 
             Malloc(Posicao, pos);//aloca o vetor auxiliar com a quantidade
 
-            pegarElemento(&elemento);//solicita o numero e verifica se È v·lido
+            pegarElemento(&elemento);//solicita o numero e verifica se √© v√°lido
 
             Posicao[pos-1].auxiliar[0]=elemento;
             Posicao[pos-1].contador=1;//contador pra a quantidade de elementos naquele vetor
 
-    }else if(Posicao[pos-1].quantidade!=0){//se j· tiver alocado
+    }else if(Posicao[pos-1].quantidade!=0){//se j√° tiver alocado
 
           pegarElemento(&elemento);
 
-          cont=contSpace(Posicao, elemento, pos);//vai contar os espaÁos vazios no vetor para poder colocar o elemento
+          cont=contSpace(Posicao, elemento, pos);//vai contar os espa√ßos vazios no vetor para poder colocar o elemento
 
             if(cont==1)
                 printf("\n Nao ha espaco para inserir numeros!!\n");
@@ -300,7 +273,7 @@ void inserir(struct principal *Posicao, int tam, int pos){
 
 }
 
-//-------------------CONTA A QUANTIDADE DE ESPA«OS PREENCHIDOS NO VETOR----------------
+//-------------------CONTA A QUANTIDADE DE ESPA√áOS PREENCHIDOS NO VETOR----------------
 int contSpace(struct principal *Posicao, int elemento, int pos){
 
     int i, cont=0;
@@ -395,7 +368,7 @@ void listarTodos(struct principal *Posicao, int tam){
 
 }
 
-//-------------FUN«√O QUE ORDENA TODOS-----------------
+//-------------FUN√á√ÉO QUE ORDENA TODOS-----------------
 void insertionSort_Todos(int *ordenaTotal, int *total){
 
     int i, j, atual;
@@ -410,7 +383,7 @@ void insertionSort_Todos(int *ordenaTotal, int *total){
 
 }
 
-//------FUN«√O QUE SOMA O TOTAL DE ELEMENTOS QUE H¡ ----------------
+//------FUN√á√ÉO QUE SOMA O TOTAL DE ELEMENTOS QUE H√Å ----------------
 int somaTotal(struct principal *Posicao, int tam){
 
     int i, soma=0;
@@ -440,7 +413,7 @@ void passarValores(struct principal *Posicao, int tam){
 
 }
 
-//-------------------------FUN«√O EXCLUIR-------------------
+//-------------------------FUN√á√ÉO EXCLUIR-------------------
 void excluir(struct principal *Posicao, int tam, int pos){
 
     int elemento, i, j, find;
@@ -466,7 +439,7 @@ void excluir(struct principal *Posicao, int tam, int pos){
 
 }
 
-//----------------------FUN«√O PARA ORDENAR POR ESTRUTURA--------------------------
+//----------------------FUN√á√ÉO PARA ORDENAR POR ESTRUTURA--------------------------
 void insertionSort(struct principal *Posicao, int tam){
 
     int i, j,k, atual;
@@ -496,7 +469,7 @@ void insertionSort(struct principal *Posicao, int tam){
 
 }
 
-//--------------FUN«√O QUE AUMENTA O VETOR AUXILIAR------------------
+//--------------FUN√á√ÉO QUE AUMENTA O VETOR AUXILIAR------------------
 void aumentar(struct principal *Posicao, int pos){
 
     char dado[10];
@@ -516,7 +489,7 @@ void aumentar(struct principal *Posicao, int pos){
 
 }
 
-//-------------------------FUN«√O DE ALOCA«√O---------------------
+//-------------------------FUN√á√ÉO DE ALOCA√á√ÉO---------------------
 void *Malloc(struct principal *Posicao, int pos){
 
     int i, qtd;
@@ -536,7 +509,7 @@ void *Malloc(struct principal *Posicao, int pos){
 
 }
 
-//---------------FUN«√O DE REALOCA«√O-----------------------------
+//---------------FUN√á√ÉO DE REALOCA√á√ÉO-----------------------------
 void *Realloc(struct principal Posicao[], int num, int pos){
 
     int i;
